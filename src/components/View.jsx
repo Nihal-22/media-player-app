@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Videocard from './Videocard'
 import { Col, Row } from 'react-bootstrap'
-import { getAllUploadVideoAPI, getCategoryAPI } from '../services/allAPI'
+import { getAllUploadVideoAPI, getCategoryAPI, updateCategoryAPI } from '../services/allAPI'
 
 function View({uploadVideoResponse,setDropVideoResponse}) {
   
@@ -37,6 +37,9 @@ function View({uploadVideoResponse,setDropVideoResponse}) {
     console.log(result);
     let{id,categoryName}=selectedCategory
     let newCategory={id,categoryName,allVideos:result}
+    console.log(newCategory);
+    const res=await updateCategoryAPI(categoryId,newCategory)
+    setDropVideoResponse(res)
     
     
     
