@@ -10,8 +10,9 @@ function Category({dropVideoResponse}) {
   const handleShow = () => setShow(true);
 
   const[categoryName,setCategoryName]=useState("")
-  // console.log(categoryName);
+  // console.log("categoryName  ==>>  ",categoryName);
   const[allCategories,setAllCategories]=useState([])
+  console.log("allCategories  ==>>  ",allCategories);
 
 
   const handelAdd=async()=>{
@@ -57,12 +58,12 @@ function Category({dropVideoResponse}) {
     const videoId=e.dataTransfer.getData("videoId")
     console.log("videoId "+videoId+" dropped into "+categoryId);
     const {data}=await getAVideoAPI(videoId)
-    // console.log(data);
+    console.log("data  ==>>  ",data);
     const selectedCategory=allCategories.find(item=>item.id==categoryId)
     selectedCategory.allVideos.push(data)
-    // console.log(selectedCategory);
+    console.log("selectedCategory  ==>>  ",selectedCategory);
     const res=await updateCategoryAPI(categoryId,selectedCategory)
-    
+    getCategories()
   }
 
   const videoDragStarted=(e,videoId,categoryId)=>{

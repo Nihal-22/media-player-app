@@ -26,19 +26,19 @@ function Videocard({video,setDeleteVideoResponse,insideCategory}) {
   return (
     <div>
       <Card  style={{ width: '18rem' ,backgroundColor:"red"}} draggable onDragStart={e=>dragStart(e,video?.id)}>
-        <Card.Img className='rounded' variant="top" src={video.url} onClick={handleShow}/>
+        <Card.Img className='rounded' variant="top" src={video?.url} onClick={handleShow}/>
         <Card.Body>
           <Card.Title className='d-flex justify-content-between align-items-center'>
-            <h3>{video.title}</h3>
+            <h3>{video?.title}</h3>
             {insideCategory?null:<button className='btn btn-link' onClick={e=>removeVideo(video?.id)}><i class="fa-solid fa-trash fa-lg"></i></button>}          </Card.Title>
         </Card.Body>
       </Card>
       {/* modal */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{video.title}</Modal.Title>
+          <Modal.Title>{video?.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body><iframe width="100%" height="315" src={`${video.link}?autoplay=1`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Modal.Body>
+        <Modal.Body><iframe width="100%" height="315" src={`${video?.link}?autoplay=1`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Modal.Body>
       </Modal>
     </div>
   )
