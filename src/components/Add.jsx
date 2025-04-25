@@ -5,7 +5,10 @@ import { uploadvideoAPI } from '../services/allAPI';
 function Add({setuploadVideoResponse}) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false)
+    
+  };
   const handleShow = () => setShow(true);
 
   const[uploadVideo,setuploadVideo]=useState({id:"",title:"",url:"",link:""})
