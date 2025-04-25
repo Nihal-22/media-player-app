@@ -7,7 +7,7 @@ function Add({setuploadVideoResponse}) {
 
   const handleClose = () => {
     setShow(false)
-    
+    setuploadVideo({id:'',title:'',url:'',link:''})
   };
   const handleShow = () => setShow(true);
 
